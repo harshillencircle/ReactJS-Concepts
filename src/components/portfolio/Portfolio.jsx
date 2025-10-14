@@ -1,18 +1,21 @@
 import React, { Fragment } from 'react'
+import ProfileImg from '../../assets/profile.jpg'
 
-function Portfolio() {
+function Portfolio({bio}) {
     return (
         <Fragment>
-            <div className='text-3xl text-gray-500 font-bold text-center'>Portfolio</div>
-            <div className='w-300px h-auto flex flex-col items-center justify-center bg-amber-50 shadow-2xl'>
-                <div className=''>
-                    <img src="https://picsum.photos/200/300" alt="portfolio" />
-                </div>
-                <div>
-                    <h3 className='text-2xl text-gray-700 font-bold'>Name</h3>
-                </div>
-                <div>
-                    <p className='text-gray-500 font-semibold'>Bio</p>
+            <div className='flex justify-center items-center gap-4'>
+                <div className='w-[250px] h-auto flex flex-col justify-center items-center bg-white shadow-2xl p-4 hover:scale-105 transition-all duration-300'>
+                    <div className='text-lg text-gray-500 font-bold '>Profile</div>
+                    <div className='w-[100px] h-[100px] object-cover rounded-[50%] overflow-hidden'>
+                        <img src={ProfileImg} alt="portfolio" />
+                    </div>
+                    <div>
+                        <h3 className='text-xl text-gray-600 font-bold'>Harshil Limbasiya</h3>
+                    </div>
+                    <div>
+                        <p className='text-sm text-gray-500 font-semibold text-justify'>{bio}</p>
+                    </div>
                 </div>
             </div>
         </Fragment>
