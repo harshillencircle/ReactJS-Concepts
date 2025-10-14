@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Portfolio from './components/portfolio/Portfolio.jsx'
 import Task from './components/tasks/Task.jsx'
+import BlogPostList from './components/blogpostlist/BlogPostList.jsx'
 
 function App() {
 
@@ -11,16 +12,17 @@ function App() {
     <Fragment>
       <Portfolio bio={bio} />
       <Task />
+      <BlogPostList />
 
       <Router>
         <Routes>
           <Route path="/profile" element={<Portfolio bio={bio} />} />
           <Route path="/task" element={<Task />} />
+          <Route path='/blog' element={<BlogPostList />} />
         </Routes>
       </Router>
-      
-    </Fragment>
 
+    </Fragment>
   )
 }
 

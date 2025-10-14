@@ -1,4 +1,3 @@
-// Build a basic to-do app that lets you add and delete tasks using useState.
 import { useState } from "react";
 
 function Task() {
@@ -37,8 +36,6 @@ function Task() {
                     {tasks.map((task, index) => (
                         <li className="space-x-2" key={index}>{task}
                             <button className="text-[12px] text-red-600 hover:bg-red-600 hover:text-white border-2 font-bold border-red-600 rounded-sm cursor-pointer px-2 py-1 uppercase" onClick={() => handleDelete(task)}>Delete</button>
-
-                            <button className="text-[12px] text-amber-600 hover:bg-amber-600 hover:text-white border-2 font-bold border-amber-600 rounded-sm cursor-pointer px-2 py-1 uppercase" onClick={() => handleDelete(task)}>Update</button>
                         </li>
                     ))}
                 </ul>
