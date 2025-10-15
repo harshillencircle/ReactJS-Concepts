@@ -37,7 +37,7 @@ function Users() {
 
     return (
         <div className="flex flex-col justify-center items-center gap-4">
-            <div className='text-lg text-gray-500 font-bold '>Users Data</div  >
+            <div className='text-lg text-gray-500 font-bold'>Users Data</div  >
 
             <div className="flex flex-wrap justify-center items-center space-x-6">
                 {users.map((user, index) => (
