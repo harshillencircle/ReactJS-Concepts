@@ -1,9 +1,11 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Portfolio from './components/portfolio/Portfolio.jsx'
 import Task from './components/tasks/Task.jsx'
 import BlogPostList from './components/blogpostlist/BlogPostList.jsx'
 import RegistrationForm from './components/registration/RegistrationForm.jsx'
+import Users from './components/users/Users.jsx'
+import NotFound from './components/notfound/NotFound.jsx'
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
       <Task />
       <BlogPostList />
       <RegistrationForm />
+      <Users />
 
       <Router>
         <Routes>
@@ -22,6 +25,8 @@ function App() {
           <Route path="/task" element={<Task />} />
           <Route path='/blog' element={<BlogPostList />} />
           <Route path='/register' element={<RegistrationForm />} />
+          <Route path='/user' element={<Users />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Router>
 
