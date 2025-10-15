@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Portfolio from './components/portfolio/Portfolio.jsx'
 import Task from './components/tasks/Task.jsx'
 import BlogPostList from './components/blogpostlist/BlogPostList.jsx'
+import RegistrationForm from './components/registration/RegistrationForm.jsx'
 
 function App() {
 
@@ -13,12 +14,14 @@ function App() {
       <Portfolio bio={bio} />
       <Task />
       <BlogPostList />
+      <RegistrationForm />
 
       <Router>
         <Routes>
           <Route path="/profile" element={<Portfolio bio={bio} />} />
           <Route path="/task" element={<Task />} />
           <Route path='/blog' element={<BlogPostList />} />
+          <Route path='/register' element={<RegistrationForm />} />
         </Routes>
       </Router>
 
