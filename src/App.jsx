@@ -8,6 +8,9 @@ import NotFound from './components/notfound/NotFound.jsx'
 import Blogs from './components/blogs/Blogs.jsx'
 import BlogDetail from './components/blogdetail/BlogDetail.jsx'
 import Navbar from './components/navbar/Navbar.jsx'
+import { ThemeProvider } from './context/ThemeContext.jsx'
+import ThemeToggle from './components/themetoggle/ThemeToggle.jsx'
+import './index.css'
 
 function App() {
 
@@ -15,17 +18,19 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Blogs />} />
-        <Route path='/blog/:id' element={<BlogDetail />} />
-        <Route path="/profile" element={<Portfolio bio={bio} />} />
-        <Route path="/task" element={<Task />} />
-        <Route path='/blogpost' element={<BlogPostList />} />
-        <Route path='/register' element={<RegistrationForm />} />
-        <Route path='/user' element={<Users />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <ThemeProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Blogs />} />
+          <Route path='/blog/:id' element={<BlogDetail />} />
+          <Route path="/profile" element={<Portfolio bio={bio} />} />
+          <Route path="/task" element={<Task />} />
+          <Route path='/blogpost' element={<BlogPostList />} />
+          <Route path='/register' element={<RegistrationForm />} />
+          <Route path='/user' element={<Users />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </ThemeProvider>
     </Router>
   )
 }
