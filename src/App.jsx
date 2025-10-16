@@ -9,14 +9,16 @@ import Blogs from './components/blogs/Blogs.jsx'
 import BlogDetail from './components/blogdetail/BlogDetail.jsx'
 import Navbar from './components/navbar/Navbar.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
-import ThemeToggle from './components/themetoggle/ThemeToggle.jsx'
-import './index.css'
+import Counter1 from './components/counters/Counter1.jsx'
+import Counter2 from './components/counters/Counter2.jsx'
+import { Fragment } from 'react'
 
 function App() {
 
   const bio = "Bio Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo cumque recusandae eum aut animi vero impedit numquam possimus, non nesciunt, nobis laborum sapiente iure consequatur quia fugit similique aliquid autem."
 
   return (
+
     <Router>
       <ThemeProvider>
         <Navbar />
@@ -28,6 +30,12 @@ function App() {
           <Route path='/blogpost' element={<BlogPostList />} />
           <Route path='/register' element={<RegistrationForm />} />
           <Route path='/user' element={<Users />} />
+          <Route path='/counter' element={
+            <Fragment>
+              <Counter1 />,
+              <Counter2 />
+            </Fragment>
+          } />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </ThemeProvider>
