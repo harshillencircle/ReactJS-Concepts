@@ -8,7 +8,7 @@ import Users from './components/users/Users.jsx'
 import NotFound from './components/notfound/NotFound.jsx'
 import Blogs from './components/blogs/Blogs.jsx'
 import BlogDetail from './components/blogdetail/BlogDetail.jsx'
-import MainNavbar from './components/mainnavbar/MainNavbar.jsx'
+import Navbar from './components/navbar/Navbar.jsx'
 
 function App() {
 
@@ -23,7 +23,8 @@ function App() {
       <Users /> */}
 
       <Router>
-        <Routes element={<MainNavbar />}>
+        <Navbar />
+        <Routes>
           <Route path='/' element={<Blogs />} />
           <Route path='/blog/:id' element={<BlogDetail />} />
           <Route path="/profile" element={<Portfolio bio={bio} />} />
