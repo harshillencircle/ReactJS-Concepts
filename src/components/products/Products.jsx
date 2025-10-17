@@ -26,7 +26,7 @@ const Products = () => {
                     <div className='items-start mt-2'>
                         <img src={product.image} alt={product.title} width="100" />
                     </div>
-                    <div>
+                    <div className='text-black'>
                         <Link to={`/product/${product.id}`}>{product.title}</Link>
                         <p className='text-gray-700 font-bold' >${product.price}</p>
                     </div>
