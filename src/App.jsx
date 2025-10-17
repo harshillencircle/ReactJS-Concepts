@@ -12,6 +12,7 @@ import { ThemeProvider } from './context/ThemeContext.jsx'
 import Counter1 from './components/counters/Counter1.jsx'
 import Counter2 from './components/counters/Counter2.jsx'
 import { Fragment } from 'react'
+import ToDo from './components/todo/ToDo.jsx'
 
 function App() {
 
@@ -26,7 +27,12 @@ function App() {
           <Route path='/' element={<Blogs />} />
           <Route path='/blog/:id' element={<BlogDetail />} />
           <Route path="/profile" element={<Portfolio bio={bio} />} />
-          <Route path="/task" element={<Task />} />
+          <Route path="/task" element={
+            <Fragment>
+              <Task />,
+              <ToDo />
+            </Fragment>
+          } />
           <Route path='/blogpost' element={<BlogPostList />} />
           <Route path='/register' element={<RegistrationForm />} />
           <Route path='/user' element={<Users />} />
