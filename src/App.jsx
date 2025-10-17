@@ -13,6 +13,8 @@ import Counter1 from './components/counters/Counter1.jsx'
 import Counter2 from './components/counters/Counter2.jsx'
 import { Fragment } from 'react'
 import ToDo from './components/todo/ToDo.jsx'
+import Products from './components/products/Products.jsx'
+import ProductDetails from './components/products/ProductDetails.jsx'
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
               <Counter2 />
             </Fragment>
           } />
+          <Route path='/product' element={<Products />} />
+          <Route path='/product/:id' element={<ProductDetails />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </ThemeProvider>
