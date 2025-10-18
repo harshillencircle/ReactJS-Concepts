@@ -15,6 +15,7 @@ import { Fragment } from 'react'
 import ToDo from './components/todo/ToDo.jsx'
 import Products from './components/products/Products.jsx'
 import ProductDetails from './components/products/ProductDetails.jsx'
+import Parent from './components/parentchild/Parent.jsx'
 
 function App() {
 
@@ -41,7 +42,8 @@ function App() {
           <Route path='/counter' element={
             <Fragment>
               <Counter1 />,
-              <Counter2 />
+              <Counter2 />,
+              <Parent />
             </Fragment>
           } />
           <Route path='/product' element={<Products />} />
