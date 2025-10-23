@@ -1,5 +1,5 @@
 import React from "react";
-import { blogs } from "../../data/Data.js"
+import { blogs } from "../../config/Data.js"
 import { Link } from "react-router-dom";
 
 function Blogs() {

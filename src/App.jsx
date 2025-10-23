@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Portfolio from './components/portfolio/Portfolio.jsx'
 import Task from './components/tasks/Task.jsx'
 import BlogPostList from './components/blogpostlist/BlogPostList.jsx'
@@ -11,12 +11,17 @@ import Navbar from './components/navbar/Navbar.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import Counter1 from './components/counters/Counter1.jsx'
 import Counter2 from './components/counters/Counter2.jsx'
-import { Fragment } from 'react'
+import { Fragment, Suspense, lazy } from 'react'
 import ToDo from './components/todo/ToDo.jsx'
 import Products from './components/products/Products.jsx'
-import ProductDetails from './components/products/ProductDetails.jsx'
+// import ProductDetails from './components/products/ProductDetails.jsx'
 import Parent from './components/parentchild/Parent.jsx'
 import ContactForm from './components/contact/ContactForm.jsx'
+import ProtectedRoute from "./navigation/ProtectedRoute.jsx";
+import Login from './components/loginlogout/Login.jsx'
+import Logout from './components/loginlogout/Logout.jsx'
+
+const ProductDetails = lazy(() => import("./components/products/ProductDetails.jsx"));
 
 function App() {
 
@@ -27,34 +32,45 @@ function App() {
     <Router>
       <ThemeProvider>
         <Navbar />
-        <Routes>
-          <Route path='/' element={<Blogs />} />
-          <Route path='/blog/:id' element={<BlogDetail />} />
-          <Route path="/profile" element={<Portfolio bio={bio} />} />
-          <Route path="/task" element={
-            <Fragment>
-              <Task />,
-              <ToDo />
-            </Fragment>
-          } />
-          <Route path='/blogpost' element={<BlogPostList />} />
-          <Route path='/register' element={<RegistrationForm />} />
-          <Route path='/user' element={<Users />} />
-          <Route path='/contact' element={<ContactForm />} />
-          <Route path='/counter' element={
-            <Fragment>
-              <Counter1 />,
-              <Counter2 />,
-              <Parent />
-            </Fragment>
-          } />
-          <Route path='/product' element={<Products />} />
-          <Route path='/product/:id' element={<ProductDetails />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>} >
+          <Routes>
+            <Route path='/' element={<Blogs />} />
+            <Route path='/blog/:id' element={<BlogDetail />} />
+            <Route path="/profile" element={<Portfolio bio={bio} />} />
+            <Route path="/task" element={
+              <Fragment>
+                <Task />,
+                <ToDo />
+              </Fragment>
+            } />
+            <Route path='/blogpost' element={<BlogPostList />} />
+            <Route path='/register' element={<RegistrationForm />} />
+            <Route path='/user' element={<Users />} />
+            <Route path='/contact' element={<ContactForm />} />
+            <Route path='/counter' element={
+              <Fragment>
+                <Counter1 />,
+                <Counter2 />,
+                <Parent />
+              </Fragment>
+            } />
+            <Route path='/product' element={<Products />} />
+            <Route path='/product/:id'
+              element={
+                <ProtectedRoute>
+                  <ProductDetails />
+                </ProtectedRoute>
+              }
+            />
+            <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path='*' element={<NotFound />} />
+            {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
+          </Routes>
+        </Suspense>
       </ThemeProvider>
     </Router>
   )
 }
 
-export default App
+export default App;

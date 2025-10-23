@@ -48,7 +48,6 @@ const ProductDetails = () => {
                         <p className="text-gray-700 text-base mb-4">{product.description}</p>
                     </div>
 
-                    {/* Price & Rating */}
                     <div className="flex items-center justify-between mt-4">
                         <div>
                             <span className="text-xl font-semibold text-green-600">
