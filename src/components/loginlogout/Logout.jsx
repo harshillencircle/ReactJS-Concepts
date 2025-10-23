@@ -6,7 +6,7 @@ function Logout() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        fakeAuth.logout(() => navigate('/', { replace: true }));
+        fakeAuth.logout(() => navigate('/product', { replace: true }));
     }
     return (
         <div className="flex items-center justify-center">
