@@ -47,8 +47,12 @@ function App() {
               </Fragment>
             } />
             <Route path='/blogpost' element={<BlogPostList />} />
-            <Route path='/register' element={<RegistrationForm />} />
-            <Route path='/form' element={<ReuseForm />} />
+            <Route path='/register' element={
+              <Fragment>
+                <RegistrationForm />,
+                <ReuseForm />
+              </Fragment>}
+            />
             <Route path='/user' element={<Users />} />
             <Route path='/contact' element={<ContactForm />} />
             <Route path='/counter' element={

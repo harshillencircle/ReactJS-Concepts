@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ReuseForm({ label, onSubmit }) {
+function ReuseForm({ label, onSubmit = () => {} }) {
     const [value, setValue] = useState('');
 
     const handleSubmit = (e) => {
