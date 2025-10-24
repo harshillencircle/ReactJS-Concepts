@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Child = React.memo(function Child({ items, onClick }) {
-    console.log("Child Rendered!");
+    // console.log("Child Rendered!");
     return (
         <div>
             <ul>

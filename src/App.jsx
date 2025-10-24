@@ -20,6 +20,8 @@ import ContactForm from './components/contact/ContactForm.jsx'
 import ProtectedRoute from "./navigation/ProtectedRoute.jsx";
 import Login from './components/loginlogout/Login.jsx'
 import Logout from './components/loginlogout/Logout.jsx'
+import ToDoTask from './components/todo/ToDoTask.jsx'
+import ReuseForm from './components/reuseform/ReuseForm.jsx'
 
 const ProductDetails = lazy(() => import("./components/products/ProductDetails.jsx"));
 
@@ -40,11 +42,13 @@ function App() {
             <Route path="/task" element={
               <Fragment>
                 <Task />,
-                <ToDo />
+                <ToDo />,
+                <ToDoTask />
               </Fragment>
             } />
             <Route path='/blogpost' element={<BlogPostList />} />
             <Route path='/register' element={<RegistrationForm />} />
+            <Route path='/form' element={<ReuseForm />} />
             <Route path='/user' element={<Users />} />
             <Route path='/contact' element={<ContactForm />} />
             <Route path='/counter' element={

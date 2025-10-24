@@ -29,7 +29,7 @@ const ToDo = () => {
 
             <ul>
                 {todos.map((todo) => (
-                    <li key={todo.id} style={{ marginTop: '10px' }}>
+                    <li key={todo.id} className='mt-2.5'>
                         <span onClick={() => dispatch(toggleTodo(todo.id))} className={`cursor-pointer ${todo.completed ? 'line-through' : ''}`} >
                             {todo.text}
                         </span>
